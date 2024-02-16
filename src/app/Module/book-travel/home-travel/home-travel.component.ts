@@ -1,13 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TravelServiceService } from './services/travel-service.service';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TravelServiceService } from 'src/app/services/travel-service.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-home-travel',
+  templateUrl: './home-travel.component.html',
+  styleUrls: ['./home-travel.component.css'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class HomeTravelComponent implements OnInit, OnDestroy {
   subscription: Subscription = new Subscription();
   title = 'mycabapp-user';
 
@@ -18,7 +19,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   availableTravel: any[] = [];
 
-  constructor(private travelService: TravelServiceService) {}
+  constructor(
+    private travelService: TravelServiceService,
+    private router: Router
+  ) {}
 
   cancel() {
     this.availableTravel = [];
@@ -59,6 +63,13 @@ export class AppComponent implements OnInit, OnDestroy {
       error: (error: any) => {},
     });
     this.subscription.add(getAllStateSubscription);
+  }
+
+  onBook(id: Number) {
+    console.log(id);
+    // Now you have the specific ID, you can use it to navigate or pass to another component
+    // For example, using Router to navigate
+    this.router.navigate(['/book', id]);
   }
 
   ngOnDestroy(): void {

@@ -1,0 +1,19 @@
+.booking-form-block {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers horizontally */
+  height: 100vh;
+}
+
+.booking-form-wrapper {
+  border: 1px solid black;
+  flex-basis: 100%;
+  max-width: 1200px;
+  padding: 50px;
+}
+
+@media (max-width: 420px) {
+  .booking-form-wrapper {
+    padding: 20px;
+  }
+}

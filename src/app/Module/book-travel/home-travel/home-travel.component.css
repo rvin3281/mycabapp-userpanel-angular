@@ -1,0 +1,34 @@
+.mycab-root {
+  padding: 20px;
+}
+.home-block {
+  padding: 20px;
+  margin: 20px;
+}
+
+.display-travel {
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.travel-box {
+  border: 1px solid black;
+}
+
+.travel-box p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.travel-price {
+  border: 1px solid black;
+  padding: 5px 25px;
+}
+
+.travel-price p {
+  font-size: 20px;
+  font-weight: 600;
+}

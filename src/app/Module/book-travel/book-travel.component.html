@@ -1,0 +1,120 @@
+<div class="booking-form-block">
+  <div class="booking-form-wrapper">
+    <div *ngIf="isLoading">
+      <h1>is loading...</h1>
+    </div>
+    <div *ngIf="!isLoading" class="booking-form-container">
+      <form>
+        <div class="mb-5">
+          <h2>Booking Form</h2>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="source">Your Source</label>
+            <input
+              type="text"
+              class="form-control"
+              name="source"
+              id="source"
+              [(ngModel)]="travelByIdData.travelSource"
+              disabled
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="destination">Your Destination</label>
+            <input
+              type="text"
+              class="form-control"
+              name="destination"
+              id="destination"
+              [(ngModel)]="travelByIdData.travelDestination"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="traveldate">Travel Date</label>
+            <input
+              type="text"
+              class="form-control"
+              name="traveldate"
+              id="traveldate"
+              [(ngModel)]="travelByIdData.travelDate"
+              disabled
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="traveltime">Departure Time</label>
+            <input
+              type="text"
+              class="form-control"
+              name="traveltime"
+              id="traveltime"
+              [(ngModel)]="travelByIdData.travel_time"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="cabname">Your Cab</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cabname"
+            id="cabname"
+            [(ngModel)]="travelByIdData.cabName"
+            disabled
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="drivername">Driver Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="drivername"
+            id="drivername"
+            [(ngModel)]="travelByIdData.driverName"
+            disabled
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="travelcost">Per Day Cost</label>
+          <input
+            type="text"
+            class="form-control"
+            name="travelcost"
+            id="travelcost"
+            [(ngModel)]="travelByIdData.travelCost"
+            disabled
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="travelname">Select Days</label>
+          <select
+            [(ngModel)]="travelByIdData.selectedDays"
+            class="form-select"
+            name="days"
+            id="days"
+          >
+            <option [ngValue]="null" disabled selected>Select days</option>
+            <option [ngValue]="1">1</option>
+            <option [ngValue]="2">2</option>
+            <option [ngValue]="3">3</option>
+            <option [ngValue]="4">4</option>
+            <option [ngValue]="5">5</option>
+            <option [ngValue]="6">6</option>
+            <option [ngValue]="7">7</option>
+            <option [ngValue]="8">8</option>
+            <option [ngValue]="9">9</option>
+            <option [ngValue]="10">10</option>
+          </select>
+        </div>
+        <div class="d-flex gap-2 mt-3">
+          <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
+          <button routerLink="" class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

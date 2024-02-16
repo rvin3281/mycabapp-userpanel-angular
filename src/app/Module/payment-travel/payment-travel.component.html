@@ -1,0 +1,103 @@
+<div class="booking-form-block">
+  <div class="booking-form-wrapper">
+    <div *ngIf="isLoading">
+      <h1>is loading...</h1>
+    </div>
+    <div *ngIf="!isLoading" class="booking-form-container">
+      <form>
+        <div class="mb-5">
+          <h2>Payment Form</h2>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="source">Your Source</label>
+            <input
+              type="text"
+              class="form-control"
+              name="source"
+              id="source"
+              [(ngModel)]="bookingData.travelSource"
+              disabled
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="destination">Your Destination</label>
+            <input
+              type="text"
+              class="form-control"
+              name="destination"
+              id="destination"
+              [(ngModel)]="bookingData.travelDestination"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="traveldate">Travel Date</label>
+            <input
+              type="text"
+              class="form-control"
+              name="traveldate"
+              id="traveldate"
+              [(ngModel)]="bookingData.travelDate"
+              disabled
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="traveltime">Departure Time</label>
+            <input
+              type="text"
+              class="form-control"
+              name="traveltime"
+              id="traveltime"
+              [(ngModel)]="bookingData.travel_time"
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="travelcost">Per Day Cost</label>
+          <input
+            type="text"
+            class="form-control"
+            name="travelcost"
+            id="travelcost"
+            [(ngModel)]="bookingData.travelPerDayCost"
+            disabled
+          />
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label" for="totaldays">Total Days</label>
+            <input
+              type="text"
+              class="form-control"
+              name="totaldays"
+              id="totaldays"
+              [(ngModel)]="bookingData.travelDays"
+              disabled
+            />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="totalpayment">Total Payment</label>
+            <input
+              type="text"
+              class="form-control"
+              name="totalpayment"
+              id="totalpayments"
+              [(ngModel)]="bookingData.travelTotalCost"
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary">Make Payment</button>
+          <button routerLink="" class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

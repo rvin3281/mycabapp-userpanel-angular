@@ -1,0 +1,138 @@
+<div class="mycab-root">
+  <div class="container">
+    <div class="home-block">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1 class="text-center mb-4">Welcome to MyCab</h1>
+          <p class="text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+            laboriosam dolorem rem aut ipsam nihil eius sequi repellendus dicta
+            itaque ex, nam aliquid excepturi voluptatem commodi qui odio quaerat
+            ut. Sint, veniam soluta inventore dolor reiciendis veritatis quae
+            molestias similique, velit, officiis itaque incidunt cum omnis aut
+            dolores illum eaque!
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img src="assets/images/home.jpg" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+
+    <div class="book-block py-3 mb-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex flex-column g-3">
+            <h2 class="text-center mb-4">Book Your Cab</h2>
+            <div>
+              <form>
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="travelsource"
+                        >Select Travel Source</label
+                      >
+                      <select
+                        class="form-select"
+                        name="travelsource"
+                        id="travelsource"
+                        [(ngModel)]="source"
+                      >
+                        <option selected disabled [value]="0">
+                          Select Source
+                        </option>
+                        <option
+                          *ngFor="let source of availableState"
+                          [ngValue]="source.state"
+                        >
+                          {{ source.state }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label" for="traveldestination"
+                        >Select Travel Destination</label
+                      >
+                      <select
+                        class="form-select"
+                        name="traveldestination"
+                        id="traveldestination"
+                        [(ngModel)]="destination"
+                      >
+                        <option selected disabled [value]="0">
+                          Select Destination
+                        </option>
+                        <option
+                          *ngFor="let source of availableState"
+                          [ngValue]="source.state"
+                        >
+                          {{ source.state }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center">
+                    <div class="d-flex gap-3 justify-content-center">
+                      <button
+                        (click)="checkAvailability()"
+                        class="btn btn-primary"
+                      >
+                        Check Availability
+                      </button>
+                      <button (click)="cancel()" class="btn btn-danger">
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="display-travel py-3">
+      <div class="row">
+        <div *ngFor="let travel of availableTravel" class="col-md-6 mb-3">
+          <div class="travel-box p-3 d-flex flex-column gap-3">
+            <div class="d-flex">
+              <p>{{ travel.travelSource }}</p>
+              <p>=></p>
+              <p>{{ travel.travelDestination }}</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p>Travel Time: {{ travel.travel_time }}</p>
+              </div>
+              <div class="col-md-6">
+                <p>Travel Date: {{ travel.travelDate }}</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">Driver: {{ travel.driver.driverName }}</div>
+              <div class="col-md-6">Cab: {{ travel.cab.cabName }}</div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="travel-price">
+                <p>{{ travel.travelCost }}</p>
+              </div>
+              <div class="book-travel">
+                <button
+                  (click)="onBook(travel.travelId)"
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
